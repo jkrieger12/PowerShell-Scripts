@@ -18,3 +18,16 @@ function Get-ComputerDiskUsage{
   Write-Host "Freespace = $($Freespace) GB"
   Write-Host "Diskusage = $($DiskUsage) %"
 }
+
+
+#Copy-UserProfile: Copy a users profile from one computer to another. Requries user to have signed into new computer
+function Copy-UserProfile(
+  Params(
+  [string]$OldComputer
+  [string]$NewComputer
+  [string]$UserProfileName
+  )
+  
+  #Test if old computer available
+  if(Test-connection -computername $OldComputer
+)
