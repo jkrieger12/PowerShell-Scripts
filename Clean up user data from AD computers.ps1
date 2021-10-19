@@ -95,14 +95,6 @@ foreach($Computer in $ComputerList){
     Write-Host -NoNewline "$($ConsoleUser) ..."
 
 
-    #Create C:\Utilities folder
-    $UtilitiesPath = "\\$($Computer)\$('c$')\Utilities"
-    $ComputerPath =  "\\$($Computer)\$('c$')"
-    if(!(Test-Path $UtilitiesPath)){
-        New-Item -ItemType Directory -Path $ComputerPath -Name 'Utilities' | Out-Null
-    }
-
-
     #Delete User files
     Write-Host -NoNewline "Removing files ..."
     remove-excessUserData -computerName $Computer -ExceptUser $ConsoleUser
